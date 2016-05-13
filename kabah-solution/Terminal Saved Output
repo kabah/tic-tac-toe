@@ -1,0 +1,139 @@
+Osiris:jquery-datepicker-lab kabah$ up
+-bash: up: command not found
+Osiris:jquery-datepicker-lab kabah$ cd ..
+Osiris:jquery-datepicker-lab kabah$ cd ..
+Osiris:Repos kabah$ mkdir geoquakes
+Osiris:Repos kabah$ cd g
+geoquakes/                   git-and-github-practice/     git-and-github-practice-jim/
+Osiris:Repos kabah$ cd geoquakes/
+Osiris:geoquakes kabah$ git init
+Initialized empty Git repository in /Users/kabah/General Assembly/WDI-29-GAIA/Repos/geoquakes/.git/
+Osiris:geoquakes kabah$ git clone https://github.com/kabah/geoquakes.git
+Cloning into 'geoquakes'...
+remote: Counting objects: 80, done.
+remote: Total 80 (delta 0), reused 0 (delta 0), pack-reused 80
+Unpacking objects: 100% (80/80), done.
+Checking connectivity... done.
+Osiris:geoquakes kabah$ subl .
+Osiris:geoquakes kabah$ cd ..
+Osiris:Repos kabah$ cd tic-tac-toe/
+Osiris:tic-tac-toe kabah$ subl .
+Osiris:tic-tac-toe kabah$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   tic-tac-toe (new commits, modified content, untracked content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Osiris:tic-tac-toe kabah$ git add -all
+error: did you mean `--all` (with two dashes ?)
+Osiris:tic-tac-toe kabah$ git add --all
+Osiris:tic-tac-toe kabah$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   tic-tac-toe
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   tic-tac-toe (modified content, untracked content)
+
+Osiris:tic-tac-toe kabah$ git add .
+Osiris:tic-tac-toe kabah$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   tic-tac-toe
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   tic-tac-toe (modified content, untracked content)
+
+Osiris:tic-tac-toe kabah$ cd ..
+Osiris:Repos kabah$ git status
+fatal: Not a git repository (or any of the parent directories): .git
+Osiris:Repos kabah$ cd tic-tac-toe/
+Osiris:tic-tac-toe kabah$ ls
+tic-tac-toe
+Osiris:tic-tac-toe kabah$ cd tic-tac-toe/
+Osiris:tic-tac-toe kabah$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   kabah-solution/index.html
+	modified:   kabah-solution/script.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	kabah-solution/[Finished in 0.1s]
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Osiris:tic-tac-toe kabah$ git add --all
+Osiris:tic-tac-toe kabah$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   kabah-solution/[Finished in 0.1s]
+	modified:   kabah-solution/index.html
+	modified:   kabah-solution/script.js
+
+Osiris:tic-tac-toe kabah$ git commit -v
+
+started JS code. With Ben's help, got placing X's and changing b
+ackground color to work. Working towards getting the change h2 t
+ag to work.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#       new file:   kabah-solution/[Finished in 0.1s]
+#       modified:   kabah-solution/index.html
+#       modified:   kabah-solution/script.js
+#
+# ------------------------ >8 ------------------------
+# Do not touch the line above.
+# Everything below will be removed.
+diff --git a/kabah-solution/[Finished in 0.1s] b/kabah-solution/[Finished in 0.1s]
+new file mode 100644
+index 0000000..e69de29
+diff --git a/kabah-solution/index.html b/kabah-solution/index.html
+index 10178a7..54f42eb 100644
+--- a/kabah-solution/index.html
++++ b/kabah-solution/index.html
+@@ -9,22 +9,22 @@
+        <div class="container">
+                <button id="reset">Clear Board</button>
+        </div>
+-       <h2 class = "playerTurn">It is X's turn</h2>
++       <h2 class="playerTurn">It is X's turn</h2>
+        <table>
+                <tr>
+-                       <td data-num='0' class="topRow leftColumn" id="topLeft"></td>
+-                       <td data-num='1' class="topRow" id="topCenter"></td>
+-                       <td data-num='2' class="topRow rightColumn" id="topRight"></td>
++                       <td data-num='0' class="topRow leftColumn box" id="0">0</td>
++                       <td data-num='1' class="topRow box" id="1">1</td>
++                       <td data-num='2' class="topRow rightColumn box" id="2">2</td>
+                </tr>
+                <tr>
+-                       <td data-num='3' class="leftColumn" id="middleLeft"></td>
+
