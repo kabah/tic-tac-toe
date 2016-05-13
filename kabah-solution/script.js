@@ -1,22 +1,11 @@
 //X goes first. Set event to listen for click on particular box.
-var boxes = document.getElementsByClassName("box");
-var playerTurn = document.getElementsByClassName("playerTurn");
 
-window.onload = function(){
 
 var isOsTurn = false;
 var xMarks = [];
 var oMarks = []; 
 
-console.log(boxes);
-
-for (var numberOfBoxes = 0; numberOfBoxes<boxes.length; numberOfBoxes++) {
-	/*boxes[numberOfBoxes].addEventListener("click", placeMark);*/
-	boxes[numberOfBoxes].addEventListener("click", changeHeader);
-	boxes[numberOfBoxes].addEventListener("click", changePlayer);
-}
-
-	
+// console.log(boxes);	
 
 // winning combos:
 
@@ -26,7 +15,7 @@ for (var numberOfBoxes = 0; numberOfBoxes<boxes.length; numberOfBoxes++) {
 
 function changeHeader () {
 	
-	if (isOsTurn == true) {
+	if (isOsTurn) {
 		playerTurn.innerHTML = "It is O's turn";
 		console.log(playerTurn);
 	} else {
@@ -37,29 +26,39 @@ function changeHeader () {
 };
 
 function changePlayer () {
-	return !isOsTurn;
+	isOsTurn = !isOsTurn;
 	};
 
 
 function placeMark () {
 
 	if(isOsTurn){
-		/*oTurn.innerHTML = "It is O's Turn";*/
+		// playerTurn.innerHTML = "It is O's Turn";
 		oMarks.push(this.id);
 		this.innerHTML = "O";
 		this.style.backgroundColor = "blue";
 		console.log("oMarks: ", oMarks);
 	} else {
-		/*xTurn.innerHTML = "It is X's Turn";*/
+		// playerTurn.innerHTML = "It is X's Turn";
 		xMarks.push(this.id);
 		this.innerHTML = "X";
 		this.style.backgroundColor = "red";
 		console.log("xMarks: ", xMarks);
 	}
-	/*changeHeader();
-	changePlayer();*/
-	checkForWin();
+	changePlayer();
+	changeHeader();
+	// checkForWin();
 };
+
+window.onload = function() {
+	window.boxes = document.getElementsByClassName("box");
+	window.playerTurn = document.getElementsByTagName("h2")[0];
+	for (var numberOfBoxes = 0; numberOfBoxes<boxes.length; numberOfBoxes++) {
+		boxes[numberOfBoxes].addEventListener("click", placeMark);
+		// boxes[numberOfBoxes].addEventListener("click", changeHeader);
+		// boxes[numberOfBoxes].addEventListener("click", changePlayer);
+	}
+}
 
 
 
@@ -70,10 +69,8 @@ function placeMark () {
 // 	document.getElementById("1").style.backgroundColor = "red";
 // };
 
-function checkForWin(){
+// function checkForWin(){
 	// check if winning combos are all X or O
-}
+// }
 
 
-
-};
