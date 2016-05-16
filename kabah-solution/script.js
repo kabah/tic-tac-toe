@@ -5,7 +5,6 @@ var winCombos = [[0,1,2], [3,4,5], [6,7,8],
 [0,3,6], [1,4,7], [2,5,8],
 [0,4,8], [2,4,6]];
 
-
 window.onload = function() {
 	playerTurn = document.getElementsByTagName("h2")[0];
 	boxes = document.getElementsByClassName("box");
@@ -14,40 +13,21 @@ window.onload = function() {
 		}
 	resetButton = document.getElementById("reset");
 	resetButton.addEventListener("click", clearBoard);
-
-
 };
-		// boxes[numberOfBoxes].addEventListener("click", changeHeader);
-		// boxes[numberOfBoxes].addEventListener("click", changePlayer);
-// function turnOffBox () {
-// 	if (boxes.innerHTML !== null) {
-// 		boxes[numberOfBoxes].removeEventListener("click", placeMark);
-// 		}
-// }
-//X goes first. Set event to listen for click on particular box.
-
-
-// console.log(boxes);	
-
-// winning combos:
-
-
 
 function changeHeader () {
-	
 	if (isOsTurn) {
 		playerTurn.innerHTML = "It is O's turn";
-		console.log(playerTurn);
+		// console.log(playerTurn);
 	} else {
 		playerTurn.innerHTML = "It is X's turn";
-		console.log(playerTurn);
+		// console.log(playerTurn);
 	}
-
 };
 
 function changePlayer () {
 	isOsTurn = !isOsTurn;
-	};
+};
 
 function clearBoard () {
 	for (var i = 0; i<boxes.length; i++) {
@@ -89,7 +69,6 @@ function checkForWin(){
 	}else {
 		checkForTie();
 	}
-	
 };
 
 function allBoxesFilled() {
@@ -100,7 +79,6 @@ function allBoxesFilled() {
 		 	}
 		 }
 		 return true;
-
 };
 
 function checkForTie() {
@@ -114,50 +92,6 @@ function checkForTie() {
 		}
 };
 	
-// 	if (xMarks === [0,1,2] || [3,4,5] || [6,7,8] ||
-// [0,3,6] || [1,4,7] || [2,5,8] ||
-// [0,4,8] || [2,4,6]) {
-// 		playerTurn.innerHTML = "Game over! X wins!";
-// 	}
-// 	if (oMarks == [0,1,2] || [3,4,5] || [6,7,8] ||
-// [0,3,6] || [1,4,7] || [2,5,8] ||
-// [0,4,8] || [2,4,6]) {
-// 		playerTurn.innerHTML = "Game over! O wins!";
-// 	}
-
-function playerWins (combo, marks) {
-	var result = intersect(combo, marks);
-	var strCombo = JSON.stringify(combo);
-	var strResult = JSON.stringify(result);
-	return strCombo === strResult;
-	console.log(strResult);
-}
-function placeMark () {
-
-	// if this.html not equal an empty string
-	// then return cuz already set
-	if (this.innerHTML !== "") {
-		return;
-	}
-
-	if(isOsTurn){
-		// playerTurn.innerHTML = "It is O's Turn";
-		oMarks.push(parseInt(this.id));
-		this.innerHTML = "O";
-		this.style.backgroundColor = "blue";
-		console.log("oMarks: ", oMarks);
-	} else {
-		// playerTurn.innerHTML = "It is X's Turn";
-		xMarks.push(parseInt(this.id));
-		this.innerHTML = "X";
-		this.style.backgroundColor = "red";
-		console.log("xMarks: ", xMarks);
-	}
-	changePlayer();
-	changeHeader();
-	checkForWin();
-};
-
 function intersect(a, b) {
   a.sort(); 
   b.sort();
@@ -175,13 +109,40 @@ function intersect(a, b) {
        bi++;
      }
   }
-
   return result;
 };
 
+function playerWins (combo, marks) {
+	var result = intersect(combo, marks);
+	var strCombo = JSON.stringify(combo);
+	var strResult = JSON.stringify(result);
+	return strCombo === strResult;
+	// console.log(strResult);
+}
+function placeMark () {
+	// if this.html not equal an empty string
+	// then return cuz already set
+	if (this.innerHTML !== "") {
+		return;
+	}
 
-
-
+	if(isOsTurn){
+		// playerTurn.innerHTML = "It is O's Turn";
+		oMarks.push(parseInt(this.id));
+		this.innerHTML = "O";
+		this.style.backgroundColor = "blue";
+		// console.log("oMarks: ", oMarks);
+	} else {
+		// playerTurn.innerHTML = "It is X's Turn";
+		xMarks.push(parseInt(this.id));
+		this.innerHTML = "X";
+		this.style.backgroundColor = "red";
+		// console.log("xMarks: ", xMarks);
+	}
+	changePlayer();
+	changeHeader();
+	checkForWin();
+};
 
 // function box1placeX () {
 // 	document.getElementById("1").innerHTML = "X";
@@ -191,3 +152,26 @@ function intersect(a, b) {
 
 
 
+		// boxes[numberOfBoxes].addEventListener("click", changeHeader);
+		// boxes[numberOfBoxes].addEventListener("click", changePlayer);
+// function turnOffBox () {
+// 	if (boxes.innerHTML !== null) {
+// 		boxes[numberOfBoxes].removeEventListener("click", placeMark);
+// 		}
+// }
+//X goes first. Set event to listen for click on particular box.
+
+
+// console.log(boxes);	
+
+// winning combos:
+// 	if (xMarks === [0,1,2] || [3,4,5] || [6,7,8] ||
+// [0,3,6] || [1,4,7] || [2,5,8] ||
+// [0,4,8] || [2,4,6]) {
+// 		playerTurn.innerHTML = "Game over! X wins!";
+// 	}
+// 	if (oMarks == [0,1,2] || [3,4,5] || [6,7,8] ||
+// [0,3,6] || [1,4,7] || [2,5,8] ||
+// [0,4,8] || [2,4,6]) {
+// 		playerTurn.innerHTML = "Game over! O wins!";
+// 	}
