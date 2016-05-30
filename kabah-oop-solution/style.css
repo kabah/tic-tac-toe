@@ -1,0 +1,40 @@
+table {
+	margin: 0 auto;
+}
+td {
+	border-radius: 10px;
+	border: 1px solid black;
+	height: 200px;
+	width: 200px;
+	text-align: center;
+	font-size: 8em
+}
+td:hover {
+	cursor: pointer;
+}
+.topRow {
+	border-top: none;
+}
+.rightColumn {
+	border-right: none;
+}
+.bottomRow {
+	border-bottom: none;
+}
+.leftColumn {
+	border-left: none;
+}
+.container, .playerTurn {
+	text-align: center;
+}
+#reset {
+	padding: 5px;
+	width: 400px;
+	font-size: 1.5em;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#reset:hover {
+	background: #b8bdee;
+  	border-color: white;
+}

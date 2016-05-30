@@ -49,16 +49,20 @@ function checkForWin(){
 		var combo = winCombos[i];
 		var xWins = playerWins(combo, xMarks);
 		var oWins = playerWins(combo, oMarks);
+		// var xWinCounter = 0;
+		// var oWinCounter = 0;
 		// console.log(xWins);
 		// console.log(oWins);
 	if (xWins) {
 		playerTurn.innerHTML = "Game over! X wins!";
 		resetButton.innerHTML = "Play Again";
+		xWinCounter++;
 		break;
 	}
 	if (oWins) {
 		playerTurn.innerHTML = "Game over! O wins!";
 		resetButton.innerHTML = "Play Again";
+		oWinCounter++;
 		break;
 			}
 		}
